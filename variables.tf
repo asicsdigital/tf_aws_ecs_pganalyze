@@ -43,3 +43,4 @@ variable "rds_endpoint" {
 variable "log_group" {
   description = "CloudWatch Log Group that will receive collector logs (must exist already)"
 }
+
