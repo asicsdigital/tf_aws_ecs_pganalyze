@@ -7,7 +7,6 @@ data "aws_ecs_cluster" "ecs" {
 }
 
 data "aws_region" "current" {
-  current = true
 }
 
 data "template_file" "pganalyze" {
@@ -41,7 +40,7 @@ resource "aws_ecs_service" "pganalyze" {
   task_definition = aws_ecs_task_definition.pganalyze[0].arn
   desired_count   = 1
 
-  placement_strategy {
+  ordered_placement_strategy {
     type  = "binpack"
     field = "memory"
   }
